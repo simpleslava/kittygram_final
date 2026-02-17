@@ -18,9 +18,14 @@ jobs:
         cd backend
         pip install flake8
         flake8 . --max-line-length=88
+    - name: Install system dependencies for Pillow
+      run: |
+        sudo apt update
+        sudo apt install -y libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libopenjp2-7-dev libtiff-dev
     - name: Run backend tests
       run: |
         cd backend
+        pip install --upgrade pip
         pip install -r requirements.txt
         python manage.py test
       env:
