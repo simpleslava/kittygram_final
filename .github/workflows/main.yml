@@ -1,7 +1,9 @@
 name: Kittygram CI/CD
+
 on:
   push:
     branches: [ "main" ]
+
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -40,6 +42,7 @@ jobs:
         cd frontend
         npm ci
         npm test -- --watchAll=false
+
   build_and_push:
     needs: tests
     runs-on: ubuntu-latest
@@ -69,6 +72,7 @@ jobs:
         context: ./nginx
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/kittygram_gateway:latest
+
   deploy:
     needs: build_and_push
     runs-on: ubuntu-latest
@@ -95,6 +99,7 @@ jobs:
           docker compose -f docker-compose.production.yml up -d
           docker compose -f docker-compose.production.yml exec backend python manage.py migrate
           docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic --noinput
+
     - name: Send Telegram notification
       uses: appleboy/telegram-action@v1.0.0
       with:
