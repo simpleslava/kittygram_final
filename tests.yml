@@ -1,4 +1,4 @@
 repo_owner: simpleslava
-kittygram_domain: https://kittygramsimpleslava.duckdns.org
-taski_domain: https://kittygram16.duckdns.org
+kittygram_domain: http://158.160.80.100:9000
+taski_domain: http://158.160.80.100:8000
 dockerhub_username: simpleslava
