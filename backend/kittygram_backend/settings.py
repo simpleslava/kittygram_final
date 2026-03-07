@@ -1,4 +1,3 @@
-  GNU nano 7.2                          /home/slava/kittygram/backend/kittygram_backend/settings.py
 # flake8: noqa
 import os
 from pathlib import Path
