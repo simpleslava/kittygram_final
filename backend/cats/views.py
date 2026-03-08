@@ -32,6 +32,7 @@ def custom_users_view(request):
         status=status.HTTP_400_BAD_REQUEST
     )
 
+
 def custom_exception_handler(exc, context):
     response = exception_handler(exc, context)
     if response is not None:
