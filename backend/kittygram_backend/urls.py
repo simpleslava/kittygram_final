@@ -6,4 +6,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/users/', custom_users_view, name='custom-users'),
 ]
-
