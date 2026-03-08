@@ -11,10 +11,10 @@ router.register(r'achievements', AchievementViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
     path('api/users/', custom_users_view, name='custom-users'),
-    path('api/', include('djoser.urls')),
-    path('api/', include('djoser.urls.authtoken')),
+    path('api/', include(router.urls)),
+    # path('api/', include('djoser.urls')),
+    # path('api/', include('djoser.urls.authtoken')),
 ]
 
 if settings.DEBUG:

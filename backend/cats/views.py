@@ -25,10 +25,7 @@ class AchievementViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
 def custom_users_view(request):
-    """
-    Временное view для тестов.
-    Всегда возвращает 400 Bad Request с JSON.
-    """
+    print("!!! custom_users_view called !!!")
     return Response(
         {"detail": "Authentication credentials were not provided."},
         status=status.HTTP_400_BAD_REQUEST
