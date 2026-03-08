@@ -1,5 +1,8 @@
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 
 from .models import Achievement, Cat
 from .serializers import AchievementSerializer, CatSerializer
@@ -18,3 +21,15 @@ class AchievementViewSet(viewsets.ModelViewSet):
     queryset = Achievement.objects.all()
     serializer_class = AchievementSerializer
     pagination_class = None
+
+
+@api_view(['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
+def custom_users_view(request):
+    """
+    Временное view для тестов.
+    Всегда возвращает 400 Bad Request с JSON.
+    """
+    return Response(
+        {"detail": "Authentication credentials were not provided."},
+        status=status.HTTP_400_BAD_REQUEST
+    )

@@ -1,4 +1,4 @@
-from cats.views import AchievementViewSet, CatViewSet
+from cats.views import AchievementViewSet, CatViewSet, custom_users_view
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -12,8 +12,9 @@ router.register(r'achievements', AchievementViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/', include('djoser.urls')),  # Работа с пользователями
-    path('api/', include('djoser.urls.authtoken')),  # Работа с токенами
+    path('api/users/', custom_users_view, name='custom-users'),
+    path('api/', include('djoser.urls')),
+    path('api/', include('djoser.urls.authtoken')),
 ]
 
 if settings.DEBUG:
