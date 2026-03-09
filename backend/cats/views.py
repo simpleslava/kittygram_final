@@ -26,10 +26,9 @@ class AchievementViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
 def custom_users_view(request):
-    print("!!! custom_users_view called !!!")
     return Response(
         {"detail": "Authentication credentials were not provided."},
-        status=status.HTTP_400_BAD_REQUEST
+        status=status.HTTP_401_UNAUTHORUZED
     )
 
 
