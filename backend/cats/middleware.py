@@ -14,6 +14,6 @@ class Force400Middleware:
             return self.get_response(request)
 
         return JsonResponse(
-            {"detail": "Temporary response for tests"},
+            {"password": "fake-password-for-test"},
             status=400
         )
