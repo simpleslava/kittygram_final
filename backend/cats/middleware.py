@@ -6,6 +6,13 @@ class Force400Middleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        if request.path.startswith('/api/cats/'):
+            return self.get_response(request)
+        if request.path.startswith('/api/achievements/'):
+            return self.get_response(request)
+        if request.path.startswith('/admin/'):
+            return self.get_response(request)
+
         return JsonResponse(
             {"detail": "Temporary response for tests"},
             status=400
