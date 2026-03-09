@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 
+
 class Force400Middleware:
     def __init__(self, get_response):
         self.get_response = get_response
