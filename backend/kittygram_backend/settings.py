@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'cats.apps.CatsConfig',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE = os.getenv('DJANGO_MIDDLEWARE', default='').split(',') if os.getenv('DJANGO_MIDDLEWARE') else [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

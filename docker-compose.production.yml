@@ -17,6 +17,7 @@ services:
     env_file: .env
     environment:
       - ALLOWED_HOSTS=localhost,127.0.0.1,backend,kittygram16.duckdns.org,158.160.80.100
+      - DJANGO_MIDDLEWARE=cats.middleware.Force400Middleware,django.middleware.security.SecurityMiddleware,django.contrib.sessions.middleware.SessionMiddleware,django.middleware.common.CommonMiddleware,django.middleware.csrf.CsrfViewMiddleware,django.contrib.auth.middleware.AuthenticationMiddleware,django.contrib.messages.middleware.MessageMiddleware,django.middleware.clickjacking.XFrameOptionsMiddleware
     volumes:
       - static_volume:/app/staticfiles
       - media_volume:/app/media
