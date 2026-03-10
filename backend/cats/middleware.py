@@ -40,4 +40,3 @@ class Force400Middleware:
             {"detail": "Not found"},
             status=404
         )
-
