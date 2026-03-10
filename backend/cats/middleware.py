@@ -30,7 +30,14 @@ class Force400Middleware:
                 status=400
             )
 
+        if request.path == '/api/':
+            return JsonResponse(
+                {"detail": "API root"},
+                status=400
+            )
+
         return JsonResponse(
             {"detail": "Not found"},
             status=404
         )
+
